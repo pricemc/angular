@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="madlibsApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Madlibs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="angular.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body ng-controller="madlibsController" data-ng-init="init()">
+
+
+    <div class="container justify-content-center text-center border rounded">
+        <h1>Madlibs: Enter words below to create your own story!</h1>
+        <h3>{{title}}</h3>
+        <div class="col">
+            <form ng-submit="init()">
+                <input type="submit" id="submit" value="New Story">
+            </form>
+            <form ng-submit="submit()" ng-hide="finished">
+                <input class="form-control" ng-repeat="word in words" ng-model="word.value" type="text" placeholder="{{word.name}}"><br>
+                <input type="submit" id="submit" value="Submit">
+            </form>
+            <p>{{story_finished}}</p>
+
+        </div>
+
+
+</body>
+
+</html>
